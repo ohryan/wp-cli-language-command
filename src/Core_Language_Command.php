@@ -196,7 +196,7 @@ class Core_Language_Command extends WP_CLI\CommandWithTranslation {
 		$language_codes = (array) $args;
 		$count          = count( $language_codes );
 
-		if ( $count > 1 && in_array( true, $assoc_args, true ) ) {
+		if ( $count > 1 && \WP_CLI\Utils\get_flag_value( $assoc_args, 'active', false ) ) {
 			WP_CLI::error( 'Only a single language can be active.' );
 		}
 
